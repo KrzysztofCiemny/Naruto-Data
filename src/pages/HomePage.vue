@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Button from '../components/Button.vue'
+import ButtonComponent from '../components/ButtonComponent.vue'
 
 export default defineComponent({
   name: 'HomePage',
   components: {
-    Button
+    ButtonComponent
   },
 
   setup() {
@@ -34,12 +34,13 @@ export default defineComponent({
         tailed beasts from the anime Naruto. Here you will find information such as character names, clan names, and the
         techniques they use. I invite you to browse the content. Choose one of the options below.</p>
     </section>
-    <section class="flex flex-row justify-center items-center gap-x-4 md:gap-x-8 my-6 md:my-14 mobileMax:mb-24">
-      <Button>Characters</Button>
-      <Button>Clans</Button>
-      <Button>Tailed Beasts</Button>
-    </section>
+    <nav class="flex flex-row justify-center items-center gap-x-4 md:gap-x-8 my-6 md:my-14 mobileMax:mb-24">
+      <ButtonComponent @click="$router.push('/Characters')">Characters</ButtonComponent>
+      <ButtonComponent @click="$router.push('/Clans')">Clans</ButtonComponent>
+      <ButtonComponent @click="$router.push('/Tailed Beasts')">Tailed Beasts</ButtonComponent>
+    </nav>
   </main>
 </template>
 
 <style></style>
+

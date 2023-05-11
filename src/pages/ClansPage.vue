@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'ClansPage',
   components: {
 
   },
@@ -16,7 +16,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <RouterView />
+  <div>ClansPage</div>
 </template>
 
 <style></style>

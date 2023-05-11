@@ -20,7 +20,8 @@
     shadow;
   }
   .nav-link {
-    @apply text-sm
+    @apply cursor-pointer
+    text-sm
     font-bold
     text-gray-600 
     no-underline
