@@ -20,18 +20,13 @@
     shadow;
   }
   .nav-link {
-    @apply border-b-2 
-    border-transparent
-    pb-2 
-    text-sm
+    @apply text-sm
     font-bold
-    text-gray-700 
+    text-gray-600 
     no-underline
     transition
     ease-in-out
-    hover:border-black
     hover:text-black
-    focus:border-black
     focus:text-black 
     md:ml-4;
   }

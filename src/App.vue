@@ -1,12 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Header from './components/Header.vue';
+import HomePage from './pages/HomePage.vue';
 
 
 export default defineComponent({
   name: 'App',
   components: {
-    Header
+    Header,
+    HomePage
   },
 
   setup() {
@@ -19,6 +21,7 @@ export default defineComponent({
 
 <template>
   <Header />
+  <HomePage />
 </template>
 
 <style></style>
