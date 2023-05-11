@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
+import useApi from './api/useApi';
 
 export default defineComponent({
   name: 'App',
@@ -8,7 +9,9 @@ export default defineComponent({
   },
 
   setup() {
+    const { getAllCharacters } = useApi();
 
+    onMounted(getAllCharacters)
     return {}
   }
 });

@@ -15,7 +15,7 @@ export default defineComponent({
 });
 </script>
 <template>
-  <div class="">
+  <div>
     <header-component />
     <router-view v-slot="{ Component }">
       <suspense>
