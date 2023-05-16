@@ -2,6 +2,8 @@
 import { defineComponent } from 'vue';
 import ButtonComponent from '../components/ButtonComponent.vue'
 import BannerComponent from '../components/BannerComponent.vue';
+import useApi from '../api/useApi';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'HomePage',
@@ -11,26 +13,14 @@ export default defineComponent({
   },
 
   setup() {
-    // const fiveCharacters = allCharacters ? allCharacters.value!.slice(0, 4) : [];
-    // console.log(fiveCharacters);
-
-    // const randomizeOffers = () => {
-    //   const randomIndexes = [];
-    //   const numberOfNeededOffers = 4;
-    //   while (randomIndexes.length < numberOfNeededOffers) {
-    //     const randomIndex = Math.floor(Math.random() * data.offers.length);
-    //     if (!randomIndexes.includes(randomIndex)) {
-    //       randomIndexes.push(randomIndex);
-    //     }
-    //   }
-    //   const randomOffers = [];
-    //   for (let i = 0; i < randomIndexes.length; i++) {
-    //     randomOffers.push(data.offers[randomIndexes[i]]);
-    //   }
-    //   return randomOffers;
-    // };
-
+    const { getAllClans } = useApi();
+    const router = useRouter()
+    const navigate = () => {
+      getAllClans()
+      router.push('/Clans')
+    }
     return {
+      navigate
     }
   }
 });
@@ -53,7 +43,7 @@ export default defineComponent({
     </section>
     <nav class="flex flex-row justify-center items-center gap-x-4 md:gap-x-8 my-6 md:my-14 mobileMax:mb-24">
       <ButtonComponent @click="$router.push('/Characters')">Characters</ButtonComponent>
-      <ButtonComponent @click="$router.push('/Clans')">Clans</ButtonComponent>
+      <ButtonComponent @click="navigate()">Clans</ButtonComponent>
       <ButtonComponent @click="$router.push('/Tailed Beasts')">Tailed Beasts</ButtonComponent>
     </nav>
   </main>

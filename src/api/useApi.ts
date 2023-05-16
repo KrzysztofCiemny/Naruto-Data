@@ -1,7 +1,8 @@
 import { ref } from "vue";
-import { CharacterBody } from "../models/models";
+import { CharacterBody, ClanBody } from "../models/models";
 
 const allCharacters = ref<CharacterBody[]>();
+const allClans = ref<ClanBody[]>();
 
 export default function useApi() {
   const getAllCharacters = async () => {
@@ -20,7 +21,28 @@ export default function useApi() {
           },
         };
       });
-      console.log(allCharacters.value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getAllClans = async () => {
+    try {
+      const response = await fetch("https://api.narutodb.xyz/clan");
+      const data = await response.json();
+      allClans.value = data.clans.map((clan: any) => {
+        return {
+          id: clan.id,
+          name: clan.name,
+          members: clan.characters.map((character: any) => {
+            return {
+              id: character.id,
+              name: character.name,
+            };
+          }),
+        };
+      });
+      console.log(allClans.value);
     } catch (error) {
       console.log(error);
     }
@@ -28,6 +50,8 @@ export default function useApi() {
   return {
     getAllCharacters,
     allCharacters,
+    getAllClans,
+    allClans,
   };
 }
 
