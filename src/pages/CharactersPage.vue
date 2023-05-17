@@ -26,8 +26,6 @@ export default defineComponent({
         );
       }
     })
-    console.log(filteredCharacters.value)
-
     const firstPage = 1;
     const lastPage = 71;
     const pageNumber = computed(() => store.state.pageNumber);
