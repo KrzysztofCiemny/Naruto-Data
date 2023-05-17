@@ -19,3 +19,14 @@ export interface ClanMember {
   id: number;
   name: string;
 }
+
+export interface TailedBeastBody {
+  id: number;
+  name: string;
+  jinchuriki: Jinchuriki[];
+}
+
+export interface Jinchuriki {
+  id: number;
+  name: string;
+}

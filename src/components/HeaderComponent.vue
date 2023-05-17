@@ -4,9 +4,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'HeaderComponent',
   setup() {
-
     return {
-
     }
   }
 })

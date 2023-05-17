@@ -1,8 +1,9 @@
 import { ref } from "vue";
-import { CharacterBody, ClanBody } from "../models/models";
+import { CharacterBody, ClanBody, TailedBeastBody } from "../models/models";
 
 const allCharacters = ref<CharacterBody[]>();
 const allClans = ref<ClanBody[]>();
+const allTailedBeasts = ref<TailedBeastBody[]>();
 
 export default function useApi() {
   const getAllCharacters = async () => {
@@ -42,7 +43,30 @@ export default function useApi() {
           }),
         };
       });
-      console.log(allClans.value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getAllTailedBeasts = async () => {
+    try {
+      const response = await fetch("https://api.narutodb.xyz/tailed-beast");
+      const data = await response.json();
+      allTailedBeasts.value = data.tailedBeasts.map((beast: any) => {
+        return {
+          id: beast.id,
+          name: beast.name,
+          jinchuriki: beast.personal.jinchūriki.map(
+            (it: string, index: number) => {
+              return {
+                id: index,
+                name: it,
+              };
+            }
+          ),
+        };
+      });
+      console.log(allTailedBeasts.value);
     } catch (error) {
       console.log(error);
     }
@@ -52,6 +76,8 @@ export default function useApi() {
     allCharacters,
     getAllClans,
     allClans,
+    getAllTailedBeasts,
+    allTailedBeasts,
   };
 }
 

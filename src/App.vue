@@ -9,9 +9,11 @@ export default defineComponent({
   },
 
   setup() {
-    const { getAllCharacters } = useApi();
+    const { getAllCharacters, getAllClans, getAllTailedBeasts } = useApi();
 
     onMounted(getAllCharacters)
+    onMounted(getAllClans)
+    onMounted(getAllTailedBeasts)
     return {}
   }
 });

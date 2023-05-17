@@ -2,8 +2,6 @@
 import { defineComponent } from 'vue';
 import ButtonComponent from '../components/ButtonComponent.vue'
 import BannerComponent from '../components/BannerComponent.vue';
-import useApi from '../api/useApi';
-import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'HomePage',
@@ -13,14 +11,8 @@ export default defineComponent({
   },
 
   setup() {
-    const { getAllClans } = useApi();
-    const router = useRouter()
-    const navigate = () => {
-      getAllClans()
-      router.push('/Clans')
-    }
+
     return {
-      navigate
     }
   }
 });
@@ -43,8 +35,8 @@ export default defineComponent({
     </section>
     <nav class="flex flex-row justify-center items-center gap-x-4 md:gap-x-8 my-6 md:my-14 mobileMax:mb-24">
       <ButtonComponent @click="$router.push('/Characters')">Characters</ButtonComponent>
-      <ButtonComponent @click="navigate()">Clans</ButtonComponent>
-      <ButtonComponent @click="$router.push('/Tailed Beasts')">Tailed Beasts</ButtonComponent>
+      <ButtonComponent @click="$router.push('/Clans')">Clans</ButtonComponent>
+      <ButtonComponent @click="$router.push('/TailedBeasts')">Tailed Beasts</ButtonComponent>
     </nav>
   </main>
 </template>
