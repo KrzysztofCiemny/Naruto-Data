@@ -11,7 +11,7 @@ export default defineComponent({
   setup() {
     const { getAllCharacters, getAllClans, getAllTailedBeasts } = useApi();
 
-    onMounted(getAllCharacters)
+    onMounted(() => getAllCharacters(1))
     onMounted(getAllClans)
     onMounted(getAllTailedBeasts)
     return {}

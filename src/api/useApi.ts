@@ -6,9 +6,11 @@ const allClans = ref<ClanBody[]>();
 const allTailedBeasts = ref<TailedBeastBody[]>();
 
 export default function useApi() {
-  const getAllCharacters = async () => {
+  const getAllCharacters = async (pageNumber: number) => {
     try {
-      const response = await fetch("https://api.narutodb.xyz/character");
+      const response = await fetch(
+        `https://api.narutodb.xyz/character?page=${pageNumber}`
+      );
       const data = await response.json();
       allCharacters.value = data.characters.map((character: any) => {
         return {
@@ -66,7 +68,6 @@ export default function useApi() {
           ),
         };
       });
-      console.log(allTailedBeasts.value);
     } catch (error) {
       console.log(error);
     }

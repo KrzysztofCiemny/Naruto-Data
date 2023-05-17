@@ -23,7 +23,7 @@ export default defineComponent({
   <main class="mobileMax:px-4">
     <BannerComponent image="https://fontmeme.com/permalink/230511/36ce7075e9135b4b58847e6db9f62c88.png" />
     <section class="flex flex-row items-center justify-center my-8 md:my-12">
-      <img src="pngegg.png" class="mobileMax:w-20 mobileMax:h-20" />
+      <img src="../../public/pngegg.png" class="mobileMax:w-20 mobileMax:h-20" />
     </section>
     <section class="flex flex-col justify-center items-center text-center md:px-16">
       <h1 class="font-semibold text-3xl md:text-5xl mb-6 md:mb-10">Explore the World of Naruto Characters with Naruto Data
