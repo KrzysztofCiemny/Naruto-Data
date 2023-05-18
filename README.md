@@ -1,29 +1,9 @@
-# template-vite-vue-ts-tailwind-v3
+# Naruto Data
+This is a simple application that displays data about the world of Naruto. The application includes features for filtering characters, sorting clans and downloading more characters from the Api. Unfortunately, images from the Api do not work, making the application look worse than it could be.
 
-- **template of:** vite + vue + typescript
-- **tailwindcss:** v3.x
+I used narutoDB api for the project
 
-## Started
-```bash
-yarn
-# or `npm install`
-```
-
----
-## Develop
-```bash
-yarn dev
-# or `npm run dev`
-```
-
----
-## Build
-```bash
-yarn build
-# or `npm run build`
-```
-
----
-<p align="center">
-<img src="./powered-by-vitawind-bright.png">
-</p>
+### Tech stack:
+* Vue3
+* TypeScript
+* Tailwind
